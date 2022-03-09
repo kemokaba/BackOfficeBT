@@ -11,13 +11,14 @@ export class ProduitComponent implements OnInit {
 
   listeProduits: Product[] = [];
 
-  displayedColumns: string[] = ['no.', 'name', 'price'];
+  displayedColumns: string[] = ['no.', 'name', 'comment', 'price'];
 
   constructor(public productsService: ProductsService) { }
 
   getProducts(){
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
+      this.listeProduits.sort((a, b) => (a.id < b.id ? -1 : 1));
       console.log(this.getProduit(1))
     },
     (err) => {

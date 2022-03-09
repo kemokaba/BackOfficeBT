@@ -16,6 +16,10 @@
         <td mat-cell *matCellDef="let produit"> {{produit.name}} </td>
     </ng-container>
     
+    <ng-container matColumnDef="comment">
+        <th mat-header-cell *matHeaderCellDef> Commentaire </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.comments}} </td>
+    </ng-container>
     <!-- Weight Column -->
     <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef> Prix </th>
