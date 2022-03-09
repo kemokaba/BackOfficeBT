@@ -11,11 +11,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { ProduitComponent } from './produit/produit.component';
+import { StockComponent } from './stock/stock.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    ProduitComponent,
+    StockComponent,
+    HistoriqueComponent
   ],
   imports: [
     BrowserModule,
