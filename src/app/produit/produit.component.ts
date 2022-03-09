@@ -11,7 +11,7 @@ export class ProduitComponent implements OnInit {
 
   listeProduits: Product[] = [];
 
-  displayedColumns: string[] = ['no.', 'name', 'comment', 'price'];
+  displayedColumns: string[] = ['no.', 'name', 'comment', 'price', 'détail'];
 
   constructor(public productsService: ProductsService) { }
 
@@ -24,6 +24,11 @@ export class ProduitComponent implements OnInit {
     (err) => {
       alert('failed loading json data');
     });
+  }
+
+  triTableau(numCat: number){
+    let tabTri = this.listeProduits.filter(produit => produit.category == numCat);
+    return tabTri;
   }
 
   getProduit(id: number){

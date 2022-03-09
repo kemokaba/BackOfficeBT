@@ -15,6 +15,8 @@ import { ProduitComponent } from './produit/produit.component';
 import { StockComponent } from './stock/stock.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
@@ -38,6 +40,8 @@ import { ProductsService } from './core/services/product.service';
     MatIconModule,
     MatListModule,
     MatTableModule,
+    MatCardModule,
+    MatTabsModule,
     HttpClientModule
   ],
   providers: [HttpClientModule, ProductsService],
