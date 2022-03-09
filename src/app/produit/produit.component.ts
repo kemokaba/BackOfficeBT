@@ -9,7 +9,9 @@ import { ProductsService } from '../core/services/product.service';
 })
 export class ProduitComponent implements OnInit {
 
-  listeProduits: Product[] = []
+  listeProduits: Product[] = [];
+
+  displayedColumns: string[] = ['no.', 'name', 'price'];
 
   constructor(public productsService: ProductsService) { }
 

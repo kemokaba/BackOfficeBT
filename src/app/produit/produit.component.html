@@ -1,3 +1,29 @@
-<ng-container *ngFor="let produit of listeProduits">
-    {{produit.name}},
-</ng-container>
+
+<table mat-table [dataSource]="listeProduits" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="no.">
+        <th mat-header-cell *matHeaderCellDef> Numéro </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.id}} </td>
+    </ng-container>
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.name}} </td>
+    </ng-container>
+    
+    <!-- Weight Column -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Prix </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.price}} € </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
