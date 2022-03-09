@@ -15,6 +15,9 @@ import { ProduitComponent } from './produit/produit.component';
 import { StockComponent } from './stock/stock.component';
 import { HistoriqueComponent } from './historique/historique.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsService } from './core/services/product.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +35,10 @@ import { HistoriqueComponent } from './historique/historique.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
