@@ -19,7 +19,6 @@ export class ProduitComponent implements OnInit {
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
       this.listeProduits.sort((a, b) => (a.id < b.id ? -1 : 1));
-      console.log(this.getProduit(1))
     },
     (err) => {
       alert('failed loading json data');

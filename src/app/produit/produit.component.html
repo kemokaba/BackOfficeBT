@@ -1,9 +1,6 @@
 <mat-tab-group>
     <mat-tab label="Poissons">
         <table mat-table [dataSource]="triTableau(0)"  class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
             
             <!-- Position Column -->
             <ng-container matColumnDef="no.">
@@ -30,7 +27,9 @@
             <ng-container matColumnDef="détail">
                 <th mat-header-cell *matHeaderCellDef> Détails </th>
                 <td mat-cell *matCellDef="let produit">
-                    <mat-icon>forward</mat-icon>
+                    <button mat-icon-button color="primary">
+                        <mat-icon>forward</mat-icon>
+                    </button>
                 </td>
             </ng-container>
             
@@ -40,9 +39,6 @@
     </mat-tab>
     <mat-tab label="Coquillages">
         <table mat-table [dataSource]="triTableau(1)"  class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
             
             <!-- Position Column -->
             <ng-container matColumnDef="no.">
@@ -69,7 +65,9 @@
             <ng-container matColumnDef="détail">
                 <th mat-header-cell *matHeaderCellDef> Détails </th>
                 <td mat-cell *matCellDef="let produit">
-                    <mat-icon>forward</mat-icon>
+                    <button mat-icon-button color="primary">
+                        <mat-icon>forward</mat-icon>
+                    </button>
                 </td>
             </ng-container>
             
@@ -79,9 +77,6 @@
     </mat-tab>
     <mat-tab label="Crustaces">
         <table mat-table [dataSource]="triTableau(2)"  class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
             
             <!-- Position Column -->
             <ng-container matColumnDef="no.">
@@ -108,7 +103,9 @@
             <ng-container matColumnDef="détail">
                 <th mat-header-cell *matHeaderCellDef> Détails </th>
                 <td mat-cell *matCellDef="let produit">
-                    <mat-icon>forward</mat-icon>
+                    <button mat-icon-button color="primary">
+                        <mat-icon>forward</mat-icon>
+                    </button>
                 </td>
             </ng-container>
             
