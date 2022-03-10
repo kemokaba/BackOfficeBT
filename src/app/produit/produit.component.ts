@@ -14,7 +14,9 @@ export class ProduitComponent implements OnInit {
 
   temp: Product[] = [];
 
-  displayedColumns: string[] = ['no.', 'name', 'comment', 'price', 'détail'];
+  displayedColumns: string[] = ['name', 'détail'];
+
+  displayedDetailCol: string[] = ['name', 'price', 'price_on_sale', 'discount', 'quantity_stock', 'quantity_sold', 'comments'];
 
   tabs= ['Poissons', 'Coquillages', 'Crustaces', 'Détail']
 
@@ -37,7 +39,7 @@ export class ProduitComponent implements OnInit {
     return tabTri;
   }
 
-  allerVersDetail(idProd: number){
+  allerVersDetail(idProd: number): void{
     this.selected.setValue(this.tabs.length-1);
     this.temp = this.listeProduits.filter(produit => produit.id == idProd);
   }
@@ -45,6 +47,13 @@ export class ProduitComponent implements OnInit {
   getProduit(){
     let leproduit = this.temp;
     return leproduit;
+  }
+
+  ifOnsale(){
+    if(this.temp[0].sale){
+      return true
+    }
+    return false
   }
 
   ngOnInit(): void {
