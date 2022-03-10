@@ -22,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 
+import { SharedModule } from './shared/shared.module'; //All material modules here
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import { ProductsService } from './core/services/product.service';
     MatTableModule,
     MatTabsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
