@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-produit',
@@ -11,9 +12,15 @@ export class ProduitComponent implements OnInit {
 
   listeProduits: Product[] = [];
 
+  produit: Product[] = [];
+
   displayedColumns: string[] = ['no.', 'name', 'comment', 'price', 'détail'];
 
-  constructor(public productsService: ProductsService) { }
+  tabs= ['Poissons', 'Coquillages', 'Crustaces', 'Détail']
+
+  selected = new FormControl(0);
+
+  constructor(private productsService: ProductsService) { }
 
   getProducts(){
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
@@ -30,13 +37,11 @@ export class ProduitComponent implements OnInit {
     return tabTri;
   }
 
-  getProduit(id: number){
-    for(let produit of this.listeProduits){
-      if(produit.id == id)
-      return produit
-    }
-    return null
+  getProduit(idProd: number){
+    this.selected.setValue(this.tabs.length-1)
+    this.produit = this.listeProduits.filter(produit => produit.id == idProd)
   }
+
 
   ngOnInit(): void {
     this.getProducts();

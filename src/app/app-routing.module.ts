@@ -7,7 +7,7 @@ import { StockComponent } from './stock/stock.component';
 const routes: Routes = [
   {path: 'produit', component: ProduitComponent},
   {path:'stock', component: StockComponent},
-  {path:'historique', component: HistoriqueComponent}
+  {path:'historique', component: HistoriqueComponent},
 ];
 
 @NgModule({
