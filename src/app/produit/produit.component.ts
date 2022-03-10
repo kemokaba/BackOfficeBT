@@ -12,7 +12,7 @@ export class ProduitComponent implements OnInit {
 
   listeProduits: Product[] = [];
 
-  produit: Product[] = [];
+  temp: Product[] = [];
 
   displayedColumns: string[] = ['no.', 'name', 'comment', 'price', 'détail'];
 
@@ -37,11 +37,15 @@ export class ProduitComponent implements OnInit {
     return tabTri;
   }
 
-  getProduit(idProd: number){
-    this.selected.setValue(this.tabs.length-1)
-    this.produit = this.listeProduits.filter(produit => produit.id == idProd)
+  allerVersDetail(idProd: number){
+    this.selected.setValue(this.tabs.length-1);
+    this.temp = this.listeProduits.filter(produit => produit.id == idProd);
   }
 
+  getProduit(){
+    let leproduit = this.temp;
+    return leproduit;
+  }
 
   ngOnInit(): void {
     this.getProducts();
