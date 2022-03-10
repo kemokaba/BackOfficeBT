@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-produit',
@@ -9,26 +10,50 @@ import { ProductsService } from '../core/services/product.service';
 })
 export class ProduitComponent implements OnInit {
 
-  listeProduits: Product[] = []
+  listeProduits: Product[] = [];
 
-  constructor(public productsService: ProductsService) { }
+  temp: Product[] = [];
+
+  displayedColumns: string[] = ['name', 'détail'];
+
+  displayedDetailCol: string[] = ['name', 'price', 'price_on_sale', 'discount', 'quantity_stock', 'quantity_sold', 'comments'];
+
+  tabs= ['Poissons', 'Coquillages', 'Crustaces', 'Détail']
+
+  selected = new FormControl(0);
+
+  constructor(private productsService: ProductsService) { }
 
   getProducts(){
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
-      console.log(this.getProduit(1))
+      this.listeProduits.sort((a, b) => (a.id < b.id ? -1 : 1));
     },
     (err) => {
       alert('failed loading json data');
     });
   }
 
-  getProduit(id: number){
-    for(let produit of this.listeProduits){
-      if(produit.id == id)
-      return produit
+  triTableau(numCat: number){
+    let tabTri = this.listeProduits.filter(produit => produit.category == numCat);
+    return tabTri;
+  }
+
+  allerVersDetail(idProd: number): void{
+    this.selected.setValue(this.tabs.length-1);
+    this.temp = this.listeProduits.filter(produit => produit.id == idProd);
+  }
+
+  getProduit(){
+    let leproduit = this.temp;
+    return leproduit;
+  }
+
+  ifOnsale(){
+    if(this.temp[0].sale){
+      return true
     }
-    return null
+    return false
   }
 
   ngOnInit(): void {
