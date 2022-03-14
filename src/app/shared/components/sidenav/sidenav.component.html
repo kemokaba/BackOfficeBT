@@ -2,7 +2,7 @@
 
 <div [class.dark-theme]="isDark"> <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
     <mat-toolbar [color]="themeColor">
-      <span>Toolbar</span>
+      <span>Menu</span>
       <span class="example-spacer"></span>
         
       <!-- ? below button will help us change the theme at run-time. -->
@@ -48,17 +48,18 @@
         
       <mat-sidenav #sidenav mode="side" opened>
         <mat-nav-list>
-            <a mat-list-item href="/produit">Produits</a>
-            <a mat-list-item href="/stock">Stocks</a>
-            <a mat-list-item href="/historique">Historiques</a>
-          </mat-nav-list>
+          <a href="/test">test</a>
+          <a mat-list-item href="/produit">Produits</a>
+          <a mat-list-item href="/stock">Stocks</a>
+          <a mat-list-item href="/historique">Historiques</a>
+        </mat-nav-list>
       </mat-sidenav>
 
         
       <mat-sidenav-content>
           
         <!-- ? our main content will be loaded here. -->
-          
+        
         <ng-content></ng-content>
           
       </mat-sidenav-content>

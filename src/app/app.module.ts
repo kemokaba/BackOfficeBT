@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 
 import { SharedModule } from './shared/shared.module'; //All material modules here
+import { TestComponent } from './test/test.component'; 
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { SharedModule } from './shared/shared.module'; //All material modules he
     ProduitComponent,
     StockComponent,
     HistoriqueComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,10 @@ import { SharedModule } from './shared/shared.module'; //All material modules he
     MatTableModule,
     MatTabsModule,
     MatCardModule,
+    MatDividerModule,
     HttpClientModule,
     SharedModule,
+    
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]

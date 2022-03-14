@@ -1,13 +1,73 @@
 <!-- src\app\app.component.html -->
-<app-main-nav></app-main-nav>
+
+<!--<app-main-nav></app-main-nav> 
 
 <app-sidenav>
   <div class="container">
-    <h1 class="mat-display-3">Main Content</h1>
+    <h1 class="mat-display-3">Bateau de Thibault</h1>
+    <h2 class="mat-display-1">---Back Office---</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis nobis illum animi temporibus omnis.
-      Consequatur qui fugit facilis reiciendis deserunt, debitis beatae! Illo dolorem asperiores nisi excepturi eum
-      veritatis cupiditate.
+      L'application web représentant le back-office d’un point de revente de produits livrés par Le Bateau de Thibault. 
+      Cette application serait utilisée par les gérants des points relais distribuant les produits du Bateau de Thibault. 
+      Elle devra permettre de visualiser et modifier les stocks de produits, ainsi que le nombre de produits vendus. 
+      Par ailleurs, elle devra permettre de visualiser de façon synthétique dans un dashboard quelques KPIs de base comme 
+      le chiffre d’affaire annuel, trimestriel, mensuel, et semainier. Une fonctionnalité avancée serait d’afficher 
+      la part des produits vendus en promotion par rapport à ceux vendus à prix fort, ainsi déduire la marge réalisée par trimestre, 
+      l’impôt prévisionnel de l’année, voire des éventuelles alertes financières à remonter à l’utilisateur.
     </p>
   </div>
-</app-sidenav>
+</app-sidenav>-->
+
+
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+
+  Application Back-Office
+</mat-toolbar>
+
+<mat-sidenav-container>
+  
+  <mat-sidenav #sidenav="matSidenav">
+
+    <img class="avatar mat-elevation-z8" src="/Images/Logo Small.jpg">
+    <h4 class="name">Bateau de Thibault</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+      <mat-icon>view_list</mat-icon>
+      <span>Produits</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon>done_all</mat-icon>
+        <span>Stock</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon>timelapse</mat-icon>
+        <span>Historique</span>
+    </button>
+
+
+    <button mat-button class="menu-button">
+        <mat-icon>help</mat-icon>
+        <span>Aide</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      Gestion des produits
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
