@@ -25,6 +25,7 @@ import { ProductsService } from './core/services/product.service';
 import { SharedModule } from './shared/shared.module'; //All material modules here
 import { TestComponent } from './test/test.component'; 
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDividerModule,
     HttpClientModule,
     SharedModule,
-    
+    MatGridListModule,
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]

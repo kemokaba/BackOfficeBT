@@ -1,8 +1,8 @@
 <!-- src\app\app.component.html -->
 
-<!--<app-main-nav></app-main-nav> 
+<!--<app-main-nav></app-main-nav> --> 
 
-<app-sidenav>
+<!-- <app-sidenav>
   <div class="container">
     <h1 class="mat-display-3">Bateau de Thibault</h1>
     <h2 class="mat-display-1">---Back Office---</h2>
@@ -21,10 +21,15 @@
       l’impôt prévisionnel de l’année, voire des éventuelles alertes financières à remonter à l’utilisateur.
     </p>
   </div>
+
+
 </app-sidenav>-->
 
 
 <mat-toolbar class="mat-elevation-z8">
+  <app-sidenav>
+
+  </app-sidenav>
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <mat-icon *ngIf="!sidenav.opened">
           menu
@@ -67,7 +72,16 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z8">
-      Gestion des produits
+        <mat-card>
+
+        </mat-card>
+        <mat-card>
+
+        </mat-card>
+        <mat-card>
+          
+        </mat-card>
     </div>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>

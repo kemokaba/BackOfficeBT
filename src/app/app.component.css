@@ -18,6 +18,18 @@ mat-sidenav {
     text-align: center;
 }
 
+mat-card {
+    margin:10px;
+    width:300px;
+    height:30px;
+    color:white;
+    background: #F2F3F4;
+    border-radius: 10px;
+    font-size: small;
+    display: flexbox;
+
+}
+
 .content {
     height: calc(100vh - 98px);
     border-radius: 10px;
@@ -26,8 +38,7 @@ mat-sidenav {
 
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: baseline;
     font-size: 2rem;
     color: lightgray;
 }
