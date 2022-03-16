@@ -16,9 +16,7 @@ export class ProduitComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'détail'];
 
-  displayedDetailCol: string[] = ['name', 'price', 'price_on_sale', 'discount', 'quantity_stock', 'quantity_sold', 'comments'];
-
-  tabs= ['Poissons', 'Coquillages', 'Crustaces', 'Détail']
+  tabs= ['Poissons', 'Détail']
 
   selected = new FormControl(0);
 
@@ -27,21 +25,16 @@ export class ProduitComponent implements OnInit {
   getProducts(){
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
-      this.listeProduits.sort((a, b) => (a.id < b.id ? -1 : 1));
+      this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
     },
     (err) => {
       alert('failed loading json data');
     });
   }
-
-  triTableau(numCat: number){
-    let tabTri = this.listeProduits.filter(produit => produit.category == numCat);
-    return tabTri;
-  }
-
+  
   allerVersDetail(idProd: number): void{
     this.selected.setValue(this.tabs.length-1);
-    this.temp = this.listeProduits.filter(produit => produit.id == idProd);
+    this.temp = this.listeProduits.filter(produit => produit.tig_id == idProd);
   }
 
   getProduit(){
