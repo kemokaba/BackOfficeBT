@@ -4,19 +4,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap");
 
 // ? 1. Default theme
-$theming-material-components-primary: mat-palette($mat-red, 400);
-$theming-material-components-accent: mat-palette($mat-blue-grey, 900);
-$theming-material-components-warn: mat-palette($mat-red, 900);
+$light-primary: mat-palette($mat-red, 400);
+$light-accent: mat-palette($mat-blue-grey, 100);
+$light-warn: mat-palette($mat-red, 900);
 
 $theming-material-components-theme: mat-light-theme(
-  $theming-material-components-primary,
-  $theming-material-components-accent,
-  $theming-material-components-warn
+  $light-primary,
+  $light-accent,
+  $light-warn
 );
 
 // ? 2. Define an alternate dark theme.
-$dark-primary: mat-palette($mat-red, 400);
-$dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$dark-primary: mat-palette($mat-amber, A200, A100, A400);
+$dark-accent: mat-palette($mat-blue-grey, 900);
 $dark-warn: mat-palette($mat-red, 900);
 $dark-theme: mat-dark-theme(
   (

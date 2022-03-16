@@ -1,6 +1,7 @@
 <!-- src\app\shared\components\sidenav\sidenav.component.html -->
 
-<div [class.dark-theme]="isDark"> <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
+ <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
+<div [class.dark-theme]="isDark">
     <mat-toolbar [color]="themeColor">
       <span>Menu</span>
       <span class="example-spacer"></span>
@@ -11,13 +12,27 @@
           brightness_6
         </mat-icon>
       </button>
+    </mat-toolbar> 
+
+    <mat-sidenav-container class="example-container">
         
-      <!-- ? below menu will help us change the color at run-time. -->
-        
+      <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list>
+          <a mat-list-item href="/produit">Produits</a>
+          <a mat-list-item href="/stock">Stocks</a>
+          <a mat-list-item href="/historique">Historiques</a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <router-outlet></router-outlet> 
+
+    </mat-sidenav-container> 
+</div>    
+      <!-- ? below menu will help us change the color at run-time. 
       <button mat-button [matMenuTriggerFor]="menu" class="menu-button" matTooltip="Select a theme color">
         {{ themeColor }}
       </button>
-        
+         
       <ng-template #noRadio>
         radio_button_unchecked
       </ng-template>
@@ -41,33 +56,7 @@
           </mat-icon>
           Accent
         </button>
-      </mat-menu>
+      </mat-menu>-->
         
-    </mat-toolbar>
-    
-    
-    
-    <!-- <mat-sidenav-container class="example-container">
-        
-      <mat-sidenav #sidenav mode="side" opened>
-        <mat-nav-list>
-          <a href="/test">test</a>
-          <a mat-list-item href="/produit">Produits</a>
-          <a mat-list-item href="/stock">Stocks</a>
-          <a mat-list-item href="/historique">Historiques</a>
-        </mat-nav-list>
-      </mat-sidenav>
 
-        
-      <mat-sidenav-content>
-          
-        
-        
-        <ng-content></ng-content>
-          
-      </mat-sidenav-content>
-        
-    </mat-sidenav-container> 
-      -->
-  </div>
   

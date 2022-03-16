@@ -1,35 +1,15 @@
 <!-- src\app\app.component.html -->
-
-<!--<app-main-nav></app-main-nav> --> 
-
 <!-- <app-sidenav>
   <div class="container">
     <h1 class="mat-display-3">Bateau de Thibault</h1>
     <h2 class="mat-display-1">---Back Office---</h2>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>
-      L'application web représentant le back-office d’un point de revente de produits livrés par Le Bateau de Thibault. 
-      Cette application serait utilisée par les gérants des points relais distribuant les produits du Bateau de Thibault. 
-      Elle devra permettre de visualiser et modifier les stocks de produits, ainsi que le nombre de produits vendus. 
-      Par ailleurs, elle devra permettre de visualiser de façon synthétique dans un dashboard quelques KPIs de base comme 
-      le chiffre d’affaire annuel, trimestriel, mensuel, et semainier. Une fonctionnalité avancée serait d’afficher 
-      la part des produits vendus en promotion par rapport à ceux vendus à prix fort, ainsi déduire la marge réalisée par trimestre, 
-      l’impôt prévisionnel de l’année, voire des éventuelles alertes financières à remonter à l’utilisateur.
-    </p>
   </div>
-
-
 </app-sidenav>-->
+ <app-sidenav></app-sidenav>
 
 
-<mat-toolbar class="mat-elevation-z8">
-  <app-sidenav>
 
-  </app-sidenav>
+<!-- <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <mat-icon *ngIf="!sidenav.opened">
           menu
@@ -53,15 +33,15 @@
 
     <button mat-button class="menu-button">
       <mat-icon>view_list</mat-icon>
-      <span>Produits</span>
+      <a href="/produit">Produits</a>
     </button>
     <button mat-button class="menu-button">
         <mat-icon>done_all</mat-icon>
-        <span>Stock</span>
+        <a href="stock">Stock</a>
     </button>
     <button mat-button class="menu-button">
         <mat-icon>timelapse</mat-icon>
-        <span>Historique</span>
+        <a href="historique">Historique</a>
     </button>
 
 
@@ -84,4 +64,4 @@
     </div>
     
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->

@@ -23,9 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 
 import { SharedModule } from './shared/shared.module'; //All material modules here
-import { TestComponent } from './test/test.component'; 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ProduitComponent,
     StockComponent,
     HistoriqueComponent,
-    TestComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -53,6 +53,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     HttpClientModule,
     SharedModule,
     MatGridListModule,
+    RouterModule,
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]

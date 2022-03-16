@@ -17,11 +17,12 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="isHandset$ | async">x
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>projetBackOfficeBT</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
+  
 </mat-sidenav-container>
