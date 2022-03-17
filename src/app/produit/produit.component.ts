@@ -38,6 +38,8 @@ export class ProduitComponent implements OnInit {
 
   nombre: number = 0;
 
+  promo: number = 0;
+
   constructor(private productsService: ProductsService, public dialog: MatDialog) { }
 
   getProducts(){
@@ -80,6 +82,26 @@ export class ProduitComponent implements OnInit {
     });
     
     this.nombre = 0;
+  }
+
+  mettrePromo(id:number){
+    this.productsService.putOnSale(id,this.promo).subscribe((res : Product) => {
+      this.produit = res
+    },
+    (err) => {
+      alert('failed loading json data');
+    });
+
+    this.promo = 0;
+  }
+
+  enleverPromo(id:number){
+    this.productsService.removeSale(id).subscribe((res : Product) => {
+      this.produit = res
+    },
+    (err) => {
+      alert('failed loading json data');
+    });
   }
 
   ngOnInit(): void {

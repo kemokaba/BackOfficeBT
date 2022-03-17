@@ -25,4 +25,12 @@ export class ProductsService {
   decrementStock(id:number, value:number): Observable<Product>{
     return this.http.get<Product>(this.baseUrl+'decrementStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
   }
+
+  putOnSale(id:number, value:number): Observable<Product>{
+    return this.http.get<Product>(this.baseUrl+'putonsale/'+id+'/'+value+'/', { headers: this.httpHeaders });
+  }
+
+  removeSale(id:number): Observable<Product>{
+    return this.http.get<Product>(this.baseUrl+'removesale/'+id+'/', { headers: this.httpHeaders });
+  }
 }
