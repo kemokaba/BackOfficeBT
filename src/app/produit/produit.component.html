@@ -37,17 +37,17 @@
             <mat-card-actions>
                 <mat-form-field appearance="fill">
                     <mat-label>Modifier Stock</mat-label>
-                    <input matInput type="number" [(ngModel)]="nombre">
+                    <input matInput type="number" [(ngModel)]="nombre[produit.tig_id]" min="0">
                 </mat-form-field>
-              <button mat-button (click)="modifStock(produit.tig_id)">Ajouter</button>
-              <button mat-button (click)="reduireStock(produit.tig_id)">Réduire</button>
+              <button mat-button (click)="modifStock(produit.tig_id, nombre[produit.tig_id])">Ajouter</button>
+              <button mat-button (click)="reduireStock(produit.tig_id, nombre[produit.tig_id])">Réduire</button>
             </mat-card-actions>
             <mat-card-actions>
                 <mat-form-field appearance="fill">
                     <mat-label>Nouvelle Promotion</mat-label>
-                    <input matInput type="number" [(ngModel)]="promo">
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" min="0">
                 </mat-form-field>
-                <button mat-button (click)="mettrePromo(produit.tig_id)">Mettre en Promo</button>
+                <button mat-button (click)="mettrePromo(produit.tig_id, promo[produit.tig_id])">Mettre en Promo</button>
                 <button mat-button (click)="enleverPromo(produit.tig_id)">Enlever Promo</button>
             </mat-card-actions>
           </mat-card>

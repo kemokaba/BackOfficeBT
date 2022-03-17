@@ -41,6 +41,32 @@
                 <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
             </ng-container>
+
+            <ng-container matColumnDef="input">
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="ajoutStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="reduireStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="input2">
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
+                        <mat-icon>add_box</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="removePromo(produit.tig_id)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
@@ -88,6 +114,32 @@
                 <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
             </ng-container>
+
+            <ng-container matColumnDef="input">
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="ajoutStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="reduireStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="input2">
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
+                        <mat-icon>add_box</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="removePromo(produit.tig_id)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
@@ -134,6 +186,32 @@
             <ng-container matColumnDef="comments">
                 <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="input">
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="ajoutStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="reduireStock(produit.tig_id, nombre[produit.tig_id])">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="input2">
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
+                <td mat-cell *matCellDef="let produit"> 
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
+                        <mat-icon>add_box</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="removePromo(produit.tig_id)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </td>
             </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
