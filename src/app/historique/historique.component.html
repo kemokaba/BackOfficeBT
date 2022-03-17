@@ -1,2 +1,24 @@
 
-<div #revealView style='height: calc(100vh - 20px); width: 100%; position:relative;'></div>
+<!--div #revealView style='height: calc(100vh - 20px); width: 100%; position:relative;'></div-->
+
+<ngx-charts-bar-vertical 
+    [view]="[1000,400]"
+    [results]="saleData"
+    [xAxisLabel]="'Products'"
+    [legendTitle]="'Product Sale Chart'"
+    [yAxisLabel]="'Sale'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical>
+ 
+<ngx-charts-advanced-pie-chart 
+      [results]="saleData"
+      [gradient]="true" >
+</ngx-charts-advanced-pie-chart>
+<ngx-charts-pie-grid 
+  [results]="saleData" >
+</ngx-charts-pie-grid>
