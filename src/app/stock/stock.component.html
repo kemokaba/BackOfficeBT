@@ -58,7 +58,7 @@
             <ng-container matColumnDef="input2">
                 <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
-                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
                         <mat-icon>add_box</mat-icon>
                     </button>
@@ -71,6 +71,9 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
+        <button mat-button (click)="incrementAll(nombre)">Ajout Stock</button>
+        <button mat-button (click)="decrementAll(nombre)">Réduire Stock</button>
+        <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
     <mat-tab label="Coquillages">
         <table mat-table [dataSource]="triTableau(1)"  class="mat-elevation-z8">
@@ -131,7 +134,7 @@
             <ng-container matColumnDef="input2">
                 <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
-                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
                         <mat-icon>add_box</mat-icon>
                     </button>
@@ -144,6 +147,9 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
+        <button mat-button (click)="incrementAll(nombre)">Ajout Stock</button>
+        <button mat-button (click)="decrementAll(nombre)">Réduire Stock</button>
+        <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
     <mat-tab label="Crustaces">
         <table mat-table [dataSource]="triTableau(2)"  class="mat-elevation-z8">
@@ -204,7 +210,7 @@
             <ng-container matColumnDef="input2">
                 <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
-                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0">
+                    <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="modifPromo(produit.tig_id, promo[produit.tig_id])">
                         <mat-icon>add_box</mat-icon>
                     </button>
@@ -217,5 +223,8 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
+        <button mat-button (click)="incrementAll(nombre)">Ajout Stock</button>
+        <button mat-button (click)="decrementAll(nombre)">Réduire Stock</button>
+        <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
 </mat-tab-group>
