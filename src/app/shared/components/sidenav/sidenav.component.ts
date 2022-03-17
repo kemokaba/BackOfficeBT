@@ -1,7 +1,9 @@
 // src\app\shared\components\sidenav\sidenav.component.ts
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 
 
@@ -13,7 +15,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class SidenavComponent implements OnInit {
   themeColor: 'primary' | 'accent' | 'warn' = 'primary'; // ? notice this
   isDark = false; // ? notice this
-  constructor(private overlayContainer: OverlayContainer) {}
+  constructor(private overlay: OverlayContainer) {}
 
   ngOnInit(): void {}
 
@@ -21,9 +23,9 @@ export class SidenavComponent implements OnInit {
   toggleTheme(): void {
     this.isDark = !this.isDark;
     if (this.isDark) {
-      this.overlayContainer.getContainerElement().classList.add('dark-theme');
+      this.overlay.getContainerElement().classList.add('dark-theme');
     } else {
-      this.overlayContainer
+      this.overlay
         .getContainerElement()
         .classList.remove('dark-theme');
     }

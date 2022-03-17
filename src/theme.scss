@@ -15,8 +15,8 @@ $theming-material-components-theme: mat-light-theme(
 );
 
 // ? 2. Define an alternate dark theme.
-$dark-primary: mat-palette($mat-amber, A200, A100, A400);
-$dark-accent: mat-palette($mat-blue-grey, 900);
+$dark-primary: mat-palette($mat-red, 400);
+$dark-accent: mat-palette($mat-amber, A200, A100, A400);
 $dark-warn: mat-palette($mat-red, 900);
 $dark-theme: mat-dark-theme(
   (
