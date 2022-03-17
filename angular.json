@@ -118,7 +118,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/flexmonster/lib/flexmonster.highcharts.js"
+            ]
           }
         },
         "lint": {

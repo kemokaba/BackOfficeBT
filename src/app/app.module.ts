@@ -17,8 +17,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-
-
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 
@@ -43,7 +42,8 @@ import { ProductsService } from './core/services/product.service';
     MatTableModule,
     MatTabsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule,
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
