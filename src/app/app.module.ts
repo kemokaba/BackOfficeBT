@@ -17,9 +17,12 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { NgxChartsModule }from '@swimlane/ngx-charts';
+import {  MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,8 +45,11 @@ import { ProductsService } from './core/services/product.service';
     MatTableModule,
     MatTabsModule,
     MatCardModule,
-    HttpClientModule,
-    NgxChartsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
