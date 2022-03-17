@@ -28,8 +28,8 @@
             <mat-card-content>
               <p>Prix:  {{ produit.price }} €</p>
               <ng-container *ngIf="produit.sale == true">
-                <p>Promotion: {{ produit.discount }} €</p>
-                <p>Reduction: {{ produit.percentage_reduc }} %</p>
+                <p style="color:crimson">Promotion: {{ produit.discount }} €</p>
+                <p style="color:crimson">Reduction: {{ produit.percentage_reduc }} %</p>
               </ng-container>
               <p>Quantité en stock: {{ produit.quantityInStock }}</p>
               <p>Nombre d'articles vendus: {{ produit.quantitySold }}</p>
