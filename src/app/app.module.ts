@@ -24,6 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from './shared/shared.module'; //All material modules here
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     ProduitComponent,
     StockComponent,
     HistoriqueComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,12 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
+    HttpClientModule,
+    SharedModule,
+    MatGridListModule,
+    RouterModule,
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
