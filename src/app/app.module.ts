@@ -24,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatInputModule,
     FormsModule,
     MatButtonToggleModule,
+    MatSelectModule,
+    MatMenuModule,
     HttpClientModule
   ],
   providers: [HttpClientModule, ProductsService],

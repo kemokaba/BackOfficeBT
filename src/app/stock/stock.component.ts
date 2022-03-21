@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
+import { RaisonModif } from '../core/interfaces/raisonModif';
 
 @Component({
   selector: 'app-stock',
@@ -17,6 +18,14 @@ export class StockComponent implements OnInit {
 
   promo: number [] = []
 
+  selectedValue:string = ""
+
+  valeurModif: RaisonModif[] = [
+    {value: 'ajout', viewValue: 'Ajout'},
+    {value: 'retrait-par-vente', viewValue: 'Vente'},
+    {value: 'retrait-par-invendus', viewValue: 'Invendu'},
+  ];
+
   constructor(private productsService: ProductsService) { }
 
   getProducts(){
@@ -32,42 +41,6 @@ export class StockComponent implements OnInit {
   triTableau(numCat: number){
     let tabTri = this.listeProduits.filter(produit => produit.category == numCat);
     return tabTri;
-  }
-
-  ajoutStock(id:number,num:number){
-    this.productsService.incrementForStock(id,num).subscribe((res : Product[]) => {
-      this.listeProduits = res
-      this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
-    },
-    (err) => {
-      alert('failed loading json data');
-    });
-    
-    this.nombre[id] = 0;
-  }
-
-  reduireStock(id:number,num:number){
-    this.productsService.decrementForStock(id,num).subscribe((res : Product[]) => {
-      this.listeProduits = res
-      this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
-    },
-    (err) => {
-      alert('failed loading json data');
-    });
-    
-    this.nombre[id] = 0;
-  }
-
-  modifPromo(id:number,num:number){
-    this.productsService.putonsaleForStock(id,num).subscribe((res : Product[]) => {
-      this.listeProduits = res
-      this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
-    },
-    (err) => {
-      alert('failed loading json data');
-    });
-    
-    this.promo[id] = 0;
   }
 
   removePromo(id:number){
@@ -91,6 +64,7 @@ export class StockComponent implements OnInit {
         alert('failed loading json data');
       });
     }
+    this.nombre.length = 0
   }
 
   decrementAll(tab:number[]){
@@ -103,6 +77,7 @@ export class StockComponent implements OnInit {
         alert('failed loading json data');
       });
     }
+    this.nombre.length = 0
   }
 
   putonsaleAll(tab:number[]){
@@ -115,6 +90,7 @@ export class StockComponent implements OnInit {
         alert('failed loading json data');
       });
     }
+    this.promo.length = 0
   }
 
   ngOnInit(): void {
