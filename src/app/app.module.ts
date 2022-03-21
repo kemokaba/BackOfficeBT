@@ -23,7 +23,11 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { NgChartsModule } from 'ng2-charts';
+=======
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+>>>>>>> 544317a3813771c1e5e6f752a43bba37f8ad974e
 
 @NgModule({
   declarations: [
@@ -50,8 +54,13 @@ import { NgChartsModule } from 'ng2-charts';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+<<<<<<< HEAD
     HttpClientModule,
     NgChartsModule
+=======
+    MatButtonToggleModule,
+    HttpClientModule
+>>>>>>> 544317a3813771c1e5e6f752a43bba37f8ad974e
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]

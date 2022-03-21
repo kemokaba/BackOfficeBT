@@ -36,9 +36,9 @@ export class ProduitComponent implements OnInit {
 
   selected = new FormControl(0);
 
-  nombre: number = 0;
+  nombre: number[] = [];
 
-  promo: number = 0;
+  promo: number[] = [];
 
   constructor(private productsService: ProductsService, public dialog: MatDialog) { }
 
@@ -62,37 +62,37 @@ export class ProduitComponent implements OnInit {
     return leproduit;
   }
   
-  modifStock(id:number){
-    this.productsService.incrementStock(id,this.nombre).subscribe((res : Product) => {
+  modifStock(id:number, num:number){
+    this.productsService.incrementStock(id,num).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
     
-    this.nombre = 0;
+    this.nombre[id] = 0;
   }
 
-  reduireStock(id:number){
-    this.productsService.decrementStock(id,this.nombre).subscribe((res : Product) => {
+  reduireStock(id:number, num:number){
+    this.productsService.decrementStock(id,num).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
     
-    this.nombre = 0;
+    this.nombre[id] = 0;
   }
 
-  mettrePromo(id:number){
-    this.productsService.putOnSale(id,this.promo).subscribe((res : Product) => {
+  mettrePromo(id:number, num:number){
+    this.productsService.putOnSale(id,num).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
 
-    this.promo = 0;
+    this.promo[id] = 0;
   }
 
   enleverPromo(id:number){
