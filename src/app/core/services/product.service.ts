@@ -9,22 +9,12 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ProductsService {
 
-<<<<<<< HEAD
-  baseUrl= "http://127.0.0.1:8000/infoproducts/"
-  httpHeaders= new HttpHeaders({ 'Content-Type': 'application/json'})
-
-  constructor( private http: HttpClient) { }
-=======
   baseUrl= "http://127.0.0.1:8000/";
   httpHeaders= new HttpHeaders({ 'Content-Type': 'application/json'})
->>>>>>> 4d091f5565b7ab953ba875dece6135fa613d1aac
 
   constructor( private http: HttpClient) { }
   //il faudra ajouter withCredentials: true
   getProductsFromJson(): Observable<Product[]>{
-<<<<<<< HEAD
-    return this.http.get<Product[]>(this.baseUrl, { headers: this.httpHeaders });
-=======
     return this.http.get<Product[]>(this.baseUrl+'infoproducts/', { headers: this.httpHeaders });
   }
 
@@ -42,6 +32,5 @@ export class ProductsService {
 
   removeSale(id:number): Observable<Product>{
     return this.http.get<Product>(this.baseUrl+'removesale/'+id+'/', { headers: this.httpHeaders });
->>>>>>> 4d091f5565b7ab953ba875dece6135fa613d1aac
   }
 }

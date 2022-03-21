@@ -18,11 +18,7 @@ export class StockComponent implements OnInit {
   getProducts(){
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
-<<<<<<< HEAD
-      this.listeProduits.sort((a, b) => (a.id < b.id ? -1 : 1));
-=======
       this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
->>>>>>> 4d091f5565b7ab953ba875dece6135fa613d1aac
     },
     (err) => {
       alert('failed loading json data');
