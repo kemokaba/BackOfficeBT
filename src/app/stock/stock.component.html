@@ -15,24 +15,16 @@
 
             <ng-container matColumnDef="price_on_sale">
                 <th mat-header-cell *matHeaderCellDef> Promotion </th>
-<<<<<<< HEAD
-                <td mat-cell *matCellDef="let produit"> {{ produit.discount }} €</td>
-=======
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.discount }} €</ng-container>
                 </td>
->>>>>>> 4d091f5565b7ab953ba875dece6135fa613d1aac
             </ng-container>
 
             <ng-container matColumnDef="discount">
                 <th mat-header-cell *matHeaderCellDef> Réduction </th>
-<<<<<<< HEAD
-                <td mat-cell *matCellDef="let produit"> {{ produit.percentage_reduc }}% </td>
-=======
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.percentage_reduc }}%</ng-container> 
                 </td>
->>>>>>> 4d091f5565b7ab953ba875dece6135fa613d1aac
             </ng-container>
 
             <ng-container matColumnDef="quantity_stock">
