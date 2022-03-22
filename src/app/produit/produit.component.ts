@@ -3,6 +3,8 @@ import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { RaisonModif } from '../core/interfaces/raisonModif';
+import { Transaction } from '../core/interfaces/transaction';
 
 @Component({
   selector: 'app-produit',
@@ -40,6 +42,14 @@ export class ProduitComponent implements OnInit {
 
   promo: number[] = [];
 
+  valeurModif: RaisonModif[] = [
+    {value: 'ajout', viewValue: 'Ajout'},
+    {value: 'retrait-par-vente', viewValue: 'Vente'},
+    {value: 'retrait-par-invendus', viewValue: 'Invendu'},
+  ];
+
+  selectedValue: string= "";
+
   constructor(private productsService: ProductsService, public dialog: MatDialog) { }
 
   getProducts(){
@@ -62,26 +72,41 @@ export class ProduitComponent implements OnInit {
     return leproduit;
   }
   
-  modifStock(id:number, num:number){
-    this.productsService.incrementStock(id,num).subscribe((res : Product) => {
+  modifStock(produit: Product, num:number){
+    this.productsService.incrementStock(produit.tig_id,num).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
+    let prix = produit.price*num
+    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category).subscribe((res : Transaction) =>{
+      let resultat = res
+    })
     
-    this.nombre[id] = 0;
+    this.nombre.length = 0;
   }
 
-  reduireStock(id:number, num:number){
-    this.productsService.decrementStock(id,num).subscribe((res : Product) => {
+  reduireStock(produit: Product, num:number){
+    this.productsService.decrementStock(produit.tig_id,num).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
+
+    let prix = 0
+    if (this.selectedValue == this.valeurModif[1].value && produit.sale){
+      prix = produit.discount * num
+    }
+    else {
+      prix = produit.price*num
+    }
+    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category).subscribe((res : Transaction) =>{
+      let resultat = res
+    })
     
-    this.nombre[id] = 0;
+    this.nombre.length = 0;
   }
 
   mettrePromo(id:number, num:number){
@@ -92,7 +117,7 @@ export class ProduitComponent implements OnInit {
       alert('failed loading json data');
     });
 
-    this.promo[id] = 0;
+    this.promo.length = 0;
   }
 
   enleverPromo(id:number){

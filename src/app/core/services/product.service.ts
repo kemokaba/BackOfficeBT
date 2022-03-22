@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../interfaces/product';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { Transaction } from '../interfaces/transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class ProductsService {
 
   removeSaleForStock(id:number): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'removesaleForStock/'+id+'/', { headers: this.httpHeaders })
+  }
+
+  addTransaction(type:string, prix:number, nom:string, quantité:number, category:number): Observable<Transaction>{
+    return this.http.get<Transaction>(this.baseUrl+'addTransaction/'+nom+'/'+type+'/'+prix+'/'+quantité+'/'+category, { headers: this.httpHeaders })
   }
 }

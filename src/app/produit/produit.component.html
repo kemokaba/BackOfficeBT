@@ -39,8 +39,20 @@
                     <mat-label>Modifier Stock</mat-label>
                     <input matInput type="number" [(ngModel)]="nombre[produit.tig_id]" min="0">
                 </mat-form-field>
-              <button mat-button (click)="modifStock(produit.tig_id, nombre[produit.tig_id])">Ajouter</button>
-              <button mat-button (click)="reduireStock(produit.tig_id, nombre[produit.tig_id])">Réduire</button>
+                <mat-form-field appearance="fill">
+                    <mat-label>Type de Modification</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" name="typeModif">
+                      <mat-option *ngFor="let valeur of valeurModif" [value]="valeur.value">
+                        {{valeur.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            <ng-container *ngIf="selectedValue == valeurModif[0].value">
+                <button mat-button (click)="modifStock(produit, nombre[produit.tig_id])">Ajouter</button>
+            </ng-container>
+            <ng-container *ngIf="selectedValue == valeurModif[1].value || selectedValue == valeurModif[2].value">
+                <button mat-button (click)="reduireStock(produit, nombre[produit.tig_id])">Réduire</button>
+            </ng-container>
             </mat-card-actions>
             <mat-card-actions>
                 <mat-form-field appearance="fill">
