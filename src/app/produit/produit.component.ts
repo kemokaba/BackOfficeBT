@@ -80,7 +80,7 @@ export class ProduitComponent implements OnInit {
       alert('failed loading json data');
     });
     let prix = produit.price*num
-    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category).subscribe((res : Transaction) =>{
+    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category, produit.tig_id).subscribe((res : Transaction) =>{
       let resultat = res
     })
     
@@ -88,21 +88,24 @@ export class ProduitComponent implements OnInit {
   }
 
   reduireStock(produit: Product, num:number){
-    this.productsService.decrementStock(produit.tig_id,num).subscribe((res : Product) => {
+    let prix = 0
+    let vente = 0
+    if (this.selectedValue == this.valeurModif[1].value && produit.sale){
+      prix = produit.discount * num
+      vente = 1
+    }
+    else {
+      prix = produit.price*num
+    }
+    
+    this.productsService.decrementStock(produit.tig_id,num,vente).subscribe((res : Product) => {
       this.produit = res
     },
     (err) => {
       alert('failed loading json data');
     });
 
-    let prix = 0
-    if (this.selectedValue == this.valeurModif[1].value && produit.sale){
-      prix = produit.discount * num
-    }
-    else {
-      prix = produit.price*num
-    }
-    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category).subscribe((res : Transaction) =>{
+    this.productsService.addTransaction(this.selectedValue, prix, produit.name, num, produit.category, produit.tig_id).subscribe((res : Transaction) =>{
       let resultat = res
     })
     

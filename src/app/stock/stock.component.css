@@ -5,3 +5,7 @@ table {
 th{
     font-size: 13.5px;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

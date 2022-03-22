@@ -17,7 +17,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import {  MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +25,7 @@ import { ProductsService } from './core/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { MatMenuModule } from '@angular/material/menu';
     FormsModule,
     MatButtonToggleModule,
     MatSelectModule,
-    MatMenuModule,
+    MatRadioModule,
     HttpClientModule
   ],
   providers: [HttpClientModule, ProductsService],
