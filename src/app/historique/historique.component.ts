@@ -33,7 +33,7 @@ export class HistoriqueComponent implements OnInit {
   prixProd: any;
   chart : any = [];
   
-  constructor(private productsService: ProductsService) { Chart.register(...registerables) }
+  constructor(private productsService: ProductsService) { Chart.register(...registerables); }
 
   
   ngOnInit(): void {
@@ -53,7 +53,7 @@ export class HistoriqueComponent implements OnInit {
      this.chart = new Chart('canvas', {
        type : 'line',
        data: {
-         labels: this.nomProd,
+         labels: this.prixProd,
          datasets: [
            {
              data: this.prixProd,
@@ -62,11 +62,12 @@ export class HistoriqueComponent implements OnInit {
              label: 'Nom prod',
              backgroundColor: 'rgba(93, 175,89, 0.1)',
              borderWidth: 3
-           }
-         ]
+           },
+         ],
 
-       }
-     })
+       },
+     });
+    
    
     
   }
