@@ -73,7 +73,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
-        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Envoyer</button>
+        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Modifier Stock</button>
         <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
     <mat-tab label="Coquillages">
@@ -150,7 +150,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
-        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Envoyer</button>
+        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Modifier Stock</button>
         <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
     <mat-tab label="Crustaces">
@@ -227,7 +227,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedDetailCol"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedDetailCol;"></tr>
         </table>
-        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Envoyer</button>
+        <button mat-button (click)="sendAlldata(nombre,selectedValue)">Modifier Stock</button>
         <button mat-button (click)="putonsaleAll(promo)">Modifier Promo</button>
     </mat-tab>
 </mat-tab-group>

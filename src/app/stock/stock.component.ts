@@ -140,14 +140,28 @@ export class StockComponent implements OnInit {
 
   putonsaleAll(tab:number[]){
     for (let key in tab){
-      this.productsService.putonsaleForStock(Number(key),tab[key]).subscribe((res : Product[]) => {
-        this.listeProduits = res
-        this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
-      },
-      (err) => {
-        alert('failed loading json data');
-      });
+      if(tab[key] > 0){
+        this.productsService.putonsaleForStock(Number(key),tab[key]).subscribe((res : Product[]) => {
+          this.listeProduits = res
+          this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
+        },
+        (err) => {
+          alert('failed loading json data');
+        });
+        continue;
+      }
+      
+      if(tab[key] !== null && tab[key] == 0){
+        this.productsService.removeSaleForStock(Number(key)).subscribe((res : Product[]) => {
+          this.listeProduits = res
+          this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
+        },
+        (err) => {
+          alert('failed loading json data');
+        });
+      }
     }
+      
     this.promo.length = 0
   }
 
