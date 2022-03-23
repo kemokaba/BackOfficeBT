@@ -90,6 +90,9 @@ export class ProduitComponent implements OnInit {
   reduireStock(produit: Product, num:number){
     let prix = 0
     let vente = 0
+    if(produit.quantityInStock==0 && produit.quantityInStock-num < 0 ) {
+      alert("La quantité en stock du produit "+produit.name+" est de "+produit.quantityInStock+" on ne peut pas réduire son stock");
+    }
     if (this.selectedValue == this.valeurModif[1].value && produit.sale){
       prix = produit.discount * num
       vente = 1
@@ -113,12 +116,22 @@ export class ProduitComponent implements OnInit {
   }
 
   mettrePromo(id:number, num:number){
-    this.productsService.putOnSale(id,num).subscribe((res : Product) => {
-      this.produit = res
-    },
-    (err) => {
-      alert('failed loading json data');
-    });
+    if( num > 0){
+      this.productsService.putOnSale(id,num).subscribe((res : Product) => {
+        this.produit = res
+      },
+      (err) => {
+        alert('failed loading json data');
+      });
+    }
+    if(num !== null && num == 0){
+      this.productsService.removeSale(id).subscribe((res : Product) => {
+        this.produit = res
+      },
+      (err) => {
+        alert('failed loading json data');
+      });
+    }
 
     this.promo.length = 0;
   }

@@ -77,7 +77,6 @@ export class StockComponent implements OnInit {
 
       if (tab[key] < 0 && tab2[key] == this.valeurModif[1].value){
         let valeur = Math.abs(tab[key])
-        console.log(valeur)
         let vente = 1
         this.productsService.decrementForStock(Number(key),valeur,vente).subscribe((res : Product[]) => {
           this.listeProduits = res
@@ -88,6 +87,9 @@ export class StockComponent implements OnInit {
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
         for (let produit of prod){
+          if(produit.quantityInStock==0 && tab[key] < 0 ) {
+            alert("La quantité en stock du produit "+produit.name+" est de "+produit.quantityInStock+" on ne peut pas réduire son stock");
+          }
           let prix = 0
           if(produit.sale){
             prix = produit.discount*valeur
@@ -114,6 +116,9 @@ export class StockComponent implements OnInit {
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
         for (let produit of prod){
+          if(produit.quantityInStock==0 && tab[key] < 0 ) {
+            alert("La quantité en stock du produit "+produit.name+" est de "+produit.quantityInStock+" on ne peut pas réduire son stock");
+          }
           this.productsService.addTransaction(tab2[key], produit.price*valeur, produit.name, valeur, produit.category, produit.tig_id).subscribe((res : Transaction) =>{
             let resultat = res
           })
@@ -124,19 +129,6 @@ export class StockComponent implements OnInit {
     this.nombre.length = 0
     this.selectedValue.length = 0
   }
-
-  /*decrementAll(tab:number[]){
-    for (let key in tab){
-      this.productsService.decrementForStock(Number(key),tab[key]).subscribe((res : Product[]) => {
-        this.listeProduits = res
-        this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
-      },
-      (err) => {
-        alert('failed loading json data');
-      });
-    }
-    this.nombre.length = 0
-  }*/
 
   putonsaleAll(tab:number[]){
     for (let key in tab){
