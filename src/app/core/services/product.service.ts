@@ -10,7 +10,7 @@ import { Transaction } from '../interfaces/transaction';
 })
 export class ProductsService {
 
-  baseUrl= "http://127.0.0.1:8000/";
+  baseUrl= "https://16fcwr67g9.execute-api.eu-west-3.amazonaws.com/backend_BT_YMK/";
   httpHeaders= new HttpHeaders({ 'Content-Type': 'application/json'})
 
   constructor( private http: HttpClient) { }
@@ -20,19 +20,22 @@ export class ProductsService {
   }
 
   incrementStock(id: number, value:number): Observable<Product>{
-    return this.http.get<Product>(this.baseUrl+'incrementStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/',{ quantityInStock: value }, { headers: this.httpHeaders });
   }
 
-  decrementStock(id:number, value:number, vente:number): Observable<Product>{
-    return this.http.get<Product>(this.baseUrl+'decrementStock/'+id+'/'+value+'/'+vente+'/', { headers: this.httpHeaders });
+  decrementForVente(id:number, value:number, quantitévendu:number): Observable<Product>{
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { quantityInStock:value, quantitySold:quantitévendu }, { headers: this.httpHeaders });
+  }
+  decrementStock(id:number, value:number): Observable<Product>{
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/',{ quantityInStock: value }, { headers: this.httpHeaders });
   }
 
-  putOnSale(id:number, value:number): Observable<Product>{
-    return this.http.get<Product>(this.baseUrl+'putonsale/'+id+'/'+value+'/', { headers: this.httpHeaders });
+  putOnSale(id:number, sale:boolean, discount:number, pourcentage:number): Observable<Product>{
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { sale:sale, discount: discount, percentage_reduc: pourcentage } , { headers: this.httpHeaders });
   }
 
   removeSale(id:number): Observable<Product>{
-    return this.http.get<Product>(this.baseUrl+'removesale/'+id+'/', { headers: this.httpHeaders });
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { sale:false }, { headers: this.httpHeaders });
   }
 
   incrementForStock(id:number, value:number): Observable<Product[]>{
@@ -52,6 +55,6 @@ export class ProductsService {
   }
 
   addTransaction(type:string, prix:number, nom:string, quantité:number, category:number, id:number): Observable<Transaction>{
-    return this.http.get<Transaction>(this.baseUrl+'addTransaction/'+nom+'/'+type+'/'+prix+'/'+quantité+'/'+category+'/'+id+'/', { headers: this.httpHeaders })
+    return this.http.post<Transaction>(this.baseUrl+'donneesHisto/', { nameProd: nom, category: category, quantityT:quantité,typeT: type, valeurT:prix  } , { headers: this.httpHeaders })
   }
 }

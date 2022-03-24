@@ -67,11 +67,9 @@ export class StockComponent implements OnInit {
         });
 
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
-        for (let produit of prod){
-          this.productsService.addTransaction(tab2[key], produit.price*tab[key], produit.name, tab[key], produit.category, produit.tig_id).subscribe((res : Transaction) =>{
-            let resultat = res
-          })
-        }
+        this.productsService.addTransaction(tab2[key], prod[0].price*tab[key], prod[0].name, tab[key], prod[0].category, prod[0].tig_id).subscribe((res : Transaction) =>{
+          let resultat = res
+        })
         continue;
       }
 
@@ -86,22 +84,24 @@ export class StockComponent implements OnInit {
           alert('failed loading json data');
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
-        for (let produit of prod){
-          if(produit.quantityInStock==0 && tab[key] < 0 ) {
-            alert("La quantité en stock du produit "+produit.name+" est de "+produit.quantityInStock+" on ne peut pas réduire son stock");
-          }
+        if(prod[0].quantityInStock==0 && tab[key] < 0 ) {
+          alert("La quantité en stock du produit "+prod[0].name+" est de "+prod[0].quantityInStock+" on ne peut pas réduire son stock");
+          continue;
+        }
+        else{
           let prix = 0
-          if(produit.sale){
-            prix = produit.discount*valeur
+          if(prod[0].sale){
+            prix = prod[0].discount*valeur
           }
           else{
-            prix = produit.price*valeur
+            prix = prod[0].price*valeur
           }
-          this.productsService.addTransaction(tab2[key], prix, produit.name, valeur, produit.category, produit.tig_id).subscribe((res : Transaction) =>{
+          this.productsService.addTransaction(tab2[key], prix, prod[0].name, valeur, prod[0].category, prod[0].tig_id).subscribe((res : Transaction) =>{
             let resultat = res
           })
+
+          continue;
         }
-        continue;
       }
 
       if (tab[key] < 0 && tab2[key] == this.valeurModif[2].value){
@@ -115,20 +115,24 @@ export class StockComponent implements OnInit {
           alert('failed loading json data');
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
-        for (let produit of prod){
-          if(produit.quantityInStock==0 && tab[key] < 0 ) {
-            alert("La quantité en stock du produit "+produit.name+" est de "+produit.quantityInStock+" on ne peut pas réduire son stock");
-          }
-          this.productsService.addTransaction(tab2[key], produit.price*valeur, produit.name, valeur, produit.category, produit.tig_id).subscribe((res : Transaction) =>{
+        if(prod[0].quantityInStock==0 && tab[key] < 0 ) {
+          alert("La quantité en stock du produit "+prod[0].name+" est de "+prod[0].quantityInStock+" on ne peut pas réduire son stock");
+          continue;
+        }
+        else{ 
+          this.productsService.addTransaction(tab2[key], prod[0].price*valeur, prod[0].name, valeur, prod[0].category, prod[0].tig_id).subscribe((res : Transaction) =>{
             let resultat = res
           })
+          }
+          continue;
         }
-        continue;
+        
       }
-    }
     this.nombre.length = 0
     this.selectedValue.length = 0
   }
+    
+  
 
   putonsaleAll(tab:number[]){
     for (let key in tab){
