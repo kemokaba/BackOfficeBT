@@ -23,8 +23,8 @@ export class ProductsService {
     return this.http.get<Product>(this.baseUrl+'incrementStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
   }
 
-  decrementStock(id:number, value:number): Observable<Product>{
-    return this.http.get<Product>(this.baseUrl+'decrementStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
+  decrementStock(id:number, value:number, vente:number): Observable<Product>{
+    return this.http.get<Product>(this.baseUrl+'decrementStock/'+id+'/'+value+'/'+vente+'/', { headers: this.httpHeaders });
   }
 
   putOnSale(id:number, value:number): Observable<Product>{
@@ -39,8 +39,8 @@ export class ProductsService {
     return this.http.get<Product[]>(this.baseUrl+'incrementForStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
   }
 
-  decrementForStock(id:number, value:number): Observable<Product[]>{
-    return this.http.get<Product[]>(this.baseUrl+'decrementForStock/'+id+'/'+value+'/', { headers: this.httpHeaders });
+  decrementForStock(id:number, value:number, vente:number): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl+'decrementForStock/'+id+'/'+value+'/'+vente+'/', { headers: this.httpHeaders });
   }
 
   putonsaleForStock(id:number, value:number): Observable<Product[]>{
@@ -51,7 +51,11 @@ export class ProductsService {
     return this.http.get<Product[]>(this.baseUrl+'removesaleForStock/'+id+'/', { headers: this.httpHeaders })
   }
 
-  addTransaction(type:string, prix:number, nom:string, quantité:number, category:number): Observable<Transaction>{
-    return this.http.get<Transaction>(this.baseUrl+'addTransaction/'+nom+'/'+type+'/'+prix+'/'+quantité+'/'+category, { headers: this.httpHeaders })
+  addTransaction(type:string, prix:number, nom:string, quantité:number, category:number, id:number): Observable<Transaction>{
+    return this.http.get<Transaction>(this.baseUrl+'addTransaction/'+nom+'/'+type+'/'+prix+'/'+quantité+'/'+category+'/'+id+'/', { headers: this.httpHeaders })
+  }
+
+  donneesHisto(): Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.baseUrl+'donneesHisto/', { headers: this.httpHeaders })
   }
 }
