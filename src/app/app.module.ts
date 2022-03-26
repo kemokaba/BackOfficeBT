@@ -17,12 +17,15 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import {  MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './core/services/product.service';
 import { FormsModule } from '@angular/forms';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { SharedModule } from './shared/shared.module'; //All material modules here
 import { MatDividerModule } from '@angular/material/divider';
@@ -55,12 +58,14 @@ import { RouterModule } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule,
     MatDividerModule,
-    HttpClientModule,
     SharedModule,
     MatGridListModule,
     RouterModule,
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatRadioModule,
+    HttpClientModule
   ],
   providers: [HttpClientModule, ProductsService],
   bootstrap: [AppComponent]
