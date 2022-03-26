@@ -57,4 +57,9 @@ export class ProductsService {
   addTransaction(type:string, prix:number, nom:string, quantité:number, category:number, id:number): Observable<Transaction>{
     return this.http.post<Transaction>(this.baseUrl+'donneesHisto/', { nameProd: nom, category: category, quantityT:quantité,typeT: type, valeurT:prix  } , { headers: this.httpHeaders })
   }
+
+  donneesHisto(): Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.baseUrl+'donneesHisto/', { headers: this.httpHeaders });
+  }
+
 }
