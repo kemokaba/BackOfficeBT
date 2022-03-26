@@ -33,6 +33,7 @@ export class StockComponent implements OnInit {
     this.productsService.getProductsFromJson().subscribe((res : Product[]) => {
       this.listeProduits = res;
       this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
+      
     },
     (err) => {
       alert('failed loading json data');
