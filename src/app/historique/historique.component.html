@@ -1,4 +1,44 @@
-<p>historique works!</p>
-<button mat-button (click)="triTableau(0)">Poissons</button>
-<button mat-button (click)="triTableau(1)">Coquillages</button>
-<button mat-button (click)="triTableau(2)">Crustaces</button>
+ 
+  <!--div width="400" height="400">
+    <canvas id="canvas">{{chart}}</canvas>
+  </div-->
+   
+
+   
+  <nav class="navbar navbar-expand navbar-light bg-primary">
+    <div class="nav navbar-nav">
+      <h5 class="nav-item nav-link active text-white"> DASHBOARD VISUALIZATION </h5>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row pt-2">
+     
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Selectionner category</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="0">Poissons</mat-option>
+          <mat-option value="1">Coquillages</mat-option>
+          <mat-option value="2">Crustaces</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button (click)="triTableau(selected)">Afficher</button>
+    
+      <div class="col-md-12">
+        <div class="card text-left">
+          <div class="card-body">
+            <ngx-charts-pie-chart 
+                [results]="saleData"
+                [legend]="true"
+                [legendTitle]="'Product Sale Report'" 
+                [view]="[1000,300]"
+                [labels]="true" >
+            </ngx-charts-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+         
+ 
