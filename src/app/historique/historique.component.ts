@@ -25,7 +25,7 @@ export class HistoriqueComponent implements OnInit {
   triTableau(numCat: number){
     let tabTri = this.donneeHisto.filter(transa => transa.category == numCat);
     this.createSaleData(tabTri)
-    console.log(tabTri)
+    console.log(this.saleData)
   }
 
   getDonneesHisto(){
