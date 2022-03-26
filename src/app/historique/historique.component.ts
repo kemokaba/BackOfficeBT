@@ -2,31 +2,47 @@ import { Component, OnInit } from '@angular/core';
  
 import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
-import { Transaction } from '../core/interfaces/transaction';
-import { Chart, registerables } from 'chart.js';
-import { RaisonModif } from '../core/interfaces/raisonModif';
+import { Transaction} from '../core/interfaces/transaction';
+import {Categorie} from '../core/interfaces/categorie'
+ 
 import { Data } from '@angular/router';
+import { id } from '@swimlane/ngx-charts';
 @Component({
   selector: 'app-historique',
   templateUrl: './historique.component.html',
   styleUrls: ['./historique.component.css']
 })
 export class HistoriqueComponent implements OnInit {
-
+  listeProduits: Product[] = [];
   donneeHisto: Transaction[] = [];
   valeurA:number = 0
   valeurV:number = 0
   valeurI:number = 0
- 
-  
   saleData:Data [] = [];
-  ARV: any = [];
+ 
 
+  selectCat: Categorie[] = [
+
+    {nameCat:'Poissons', valCat: 0},
+    {nameCat: 'Coquillages', valCat: 1},
+    {nameCat: 'Crustaces', valCat: 2},
+
+  ];
+  selectedValue: string= "";
+
+  
+  triTableau(numCat: number){
+    let tabTri = this.donneeHisto.filter(produit => produit.category == numCat);
+    return tabTri;
+     
+    
+  }
 
   constructor(private productsService: ProductsService){}
   getDonneesHisto(){
     this.productsService.donneesHisto().subscribe((res : Transaction[]) => {
       this.donneeHisto = res;
+       
       //console.log(this.donneeHisto)
        for (let donn of this.donneeHisto ) {
           //console.log(donn.typeT)
@@ -62,6 +78,9 @@ export class HistoriqueComponent implements OnInit {
   
   ngOnInit(): void {
     this.getDonneesHisto()
+     
+     
+
     
 
 

@@ -2,18 +2,20 @@
   <!--div width="400" height="400">
     <canvas id="canvas">{{chart}}</canvas>
   </div-->
- 
-  <nav class="navbar navbar-expand navbar-light bg-primary">
-    <div class="nav navbar-nav">
-      <h5 class="nav-item nav-link active text-white"> DASHBOARD VISUALIZATION </h5>
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <div class="row pt-2">
-    
-      <div class="col-md-12">
-        <div class="card text-left">
-          <div class="card-body">
+   
+
+   
+  <h4>Basic mat-select</h4>
+  <mat-form-field appearance="fill">
+    <mat-label>Selectionner category</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let don of donneeHisto" [value]="don.category">
+        {{don.valeurT}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
             <ngx-charts-pie-chart 
                 [results]="saleData"
                 [legend]="true"
@@ -21,10 +23,5 @@
                 [view]="[1000,300]"
                 [labels]="true" >
             </ngx-charts-pie-chart>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
+         
  
