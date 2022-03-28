@@ -58,7 +58,7 @@ export class StockComponent implements OnInit {
   
   sendAlldata(tab:number[], tab2:string[]){
     for (let key in tab){
-      if (tab[key] > 0 && tab2[key] == this.valeurModif[0].value){
+      if (tab2[key] == this.valeurModif[0].value){
         this.productsService.incrementForStock(Number(key),tab[key]).subscribe((res : Product[]) => {
           this.listeProduits = res
           this.listeProduits.sort((a, b) => (a.tig_id < b.tig_id ? -1 : 1));
@@ -74,8 +74,8 @@ export class StockComponent implements OnInit {
         continue;
       }
 
-      if (tab[key] < 0 && tab2[key] == this.valeurModif[1].value){
-        let valeur = Math.abs(tab[key])
+      if (tab2[key] == this.valeurModif[1].value){
+        let valeur = tab[key]
         let vente = 1
         this.productsService.decrementForStock(Number(key),valeur,vente).subscribe((res : Product[]) => {
           this.listeProduits = res
@@ -85,7 +85,7 @@ export class StockComponent implements OnInit {
           alert('failed loading json data');
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
-        if(prod[0].quantityInStock==0 && tab[key] < 0 ) {
+        if(prod[0].quantityInStock==0) {
           alert("La quantité en stock du produit "+prod[0].name+" est de "+prod[0].quantityInStock+" on ne peut pas réduire son stock");
           continue;
         }
@@ -105,8 +105,8 @@ export class StockComponent implements OnInit {
         }
       }
 
-      if (tab[key] < 0 && tab2[key] == this.valeurModif[2].value){
-        let valeur = Math.abs(tab[key])
+      if (tab2[key] == this.valeurModif[2].value){
+        let valeur = tab[key]
         let vente = 0
         this.productsService.decrementForStock(Number(key),valeur,vente).subscribe((res : Product[]) => {
           this.listeProduits = res
@@ -116,7 +116,7 @@ export class StockComponent implements OnInit {
           alert('failed loading json data');
         });
         let prod = this.listeProduits.filter(produit => produit.tig_id == Number(key));
-        if(prod[0].quantityInStock==0 && tab[key] < 0 ) {
+        if(prod[0].quantityInStock==0) {
           alert("La quantité en stock du produit "+prod[0].name+" est de "+prod[0].quantityInStock+" on ne peut pas réduire son stock");
           continue;
         }
