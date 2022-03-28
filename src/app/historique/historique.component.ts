@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
  
-import { Product } from '../core/interfaces/product';
 import { ProductsService } from '../core/services/product.service';
 import { Transaction } from '../core/interfaces/transaction';
-import { RaisonModif } from '../core/interfaces/raisonModif';
-import { Data } from '@angular/router';
+import { DataT } from '../core/interfaces/dataTransaction';
 @Component({
   selector: 'app-historique',
   templateUrl: './historique.component.html',
@@ -16,16 +14,20 @@ export class HistoriqueComponent implements OnInit {
 
  
   
-  saleData:Data [] = [];
+  saleData: DataT [] = [];
   selected: number = -1
 
 
   constructor(private productsService: ProductsService){}
 
   triTableau(numCat: number){
-    let tabTri = this.donneeHisto.filter(transa => transa.category == numCat);
-    this.createSaleData(tabTri)
-    console.log(this.saleData)
+    if(numCat == -1){
+      this.createSaleData(this.donneeHisto)
+    }
+    else {
+      let tabTri = this.donneeHisto.filter(transa => transa.category == numCat);
+      this.createSaleData(tabTri)
+    }
   }
 
   getDonneesHisto(){
@@ -68,9 +70,9 @@ export class HistoriqueComponent implements OnInit {
         }
     }
     this.saleData = [
-      { name: 'ajout', value: valeurA },
-      { name: 'vente', value: valeurV },
-      { name: 'invendu', value: valeurI }
+      { name: 'Ajout en €', value: valeurA },
+      { name: 'Vente en €', value: valeurV },
+      { name: 'Perte en €', value: valeurI }
     ]
   }
   

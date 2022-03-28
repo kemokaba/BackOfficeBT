@@ -1,4 +1,4 @@
-export interface Data {
+export interface DataT {
     name: string,
-    valeur: number
+    value: number
 }

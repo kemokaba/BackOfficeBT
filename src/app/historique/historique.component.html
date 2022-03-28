@@ -17,6 +17,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Selectionner category</mat-label>
         <mat-select [(value)]="selected">
+          <mat-option value="-1">Général</mat-option>
           <mat-option value="0">Poissons</mat-option>
           <mat-option value="1">Coquillages</mat-option>
           <mat-option value="2">Crustaces</mat-option>
@@ -31,8 +32,8 @@
                 [results]="saleData"
                 [legend]="true"
                 [legendTitle]="'Product Sale Report'" 
-                [view]="[1000,300]"
-                [labels]="true" >
+                [view]="[1000,500]"
+                [labels]="true">
             </ngx-charts-pie-chart>
           </div>
         </div>
