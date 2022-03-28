@@ -68,7 +68,7 @@ export class HistoriqueComponent implements OnInit {
         }
     }
     this.saleData = [
-      { name: 'ajout', value: valeurA },
+      { name: 'ajout', value: valeurA},
       { name: 'vente', value: valeurV },
       { name: 'invendu', value: valeurI }
     ]
