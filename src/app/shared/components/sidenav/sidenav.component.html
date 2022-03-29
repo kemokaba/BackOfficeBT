@@ -1,34 +1,32 @@
 <!-- src\app\shared\components\sidenav\sidenav.component.html -->
 
  <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
-<div [class.dark-theme]="isDark">
-    <mat-toolbar [color]="themeColor">
-      <span>Menu</span>
-      <span class="spacer"></span>
-        
-      <!-- ? below button will help us change the theme at run-time. -->
-      <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme">
-        <mat-icon>brightness_6</mat-icon>         
-      </button>
-    </mat-toolbar> 
-
-    <mat-sidenav-container class="container">
-        
-      <mat-sidenav #sidenav mode="side" opened>
-         
-          <mat-nav-list>
-            <a mat-list-item href="/produit"><mat-icon>view_list</mat-icon>Produits</a>
-            <a mat-list-item href="/stock"><mat-icon>done_all</mat-icon>Stocks</a>
-            <a mat-list-item href="/historique"><mat-icon>timelapse</mat-icon>Historiques</a>
-          </mat-nav-list>
+ <div [class.dark-theme]="isDark">
+  <mat-toolbar [color]="themeColor">
+    <button mat-button (click)="sidenav.toggle()"><mat-icon>view_list</mat-icon></button>
+    <span>Menu</span>
+    <span class="spacer"></span>
       
-      </mat-sidenav>
-      <mat-sidenav-content style="margin-left: 240px;">
+    <!-- ? below button will help us change the theme at run-time. -->
+    <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme">
+      <mat-icon>brightness_6</mat-icon>         
+    </button>
+  </mat-toolbar> 
 
-        <router-outlet></router-outlet>
-        
-      </mat-sidenav-content>
+  <mat-sidenav-container class="container">
       
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list>
+          <a mat-list-item href="/produit"><mat-icon>view_list</mat-icon>Produits</a>
+          <a mat-list-item href="/stock"><mat-icon>done_all</mat-icon>Stocks</a>
+          <a mat-list-item href="/historique"><mat-icon>timelapse</mat-icon>Historiques</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
 
-    </mat-sidenav-container> 
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container> 
 </div>    
