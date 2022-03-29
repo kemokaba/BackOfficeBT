@@ -7,6 +7,5 @@ th{
 }
 
 .mat-radio-button ~ .mat-radio-button {
-  margin-left: 5px;
-  margin-right: 10px;
+  margin-left: 16px;
 }

@@ -14,14 +14,14 @@
             </ng-container>
 
             <ng-container matColumnDef="price_on_sale">
-                <th mat-header-cell *matHeaderCellDef> Promo </th>
+                <th mat-header-cell *matHeaderCellDef> Promotion </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.discount }} €</ng-container>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="discount">
-                <th mat-header-cell *matHeaderCellDef> % </th>
+                <th mat-header-cell *matHeaderCellDef> Réduction </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.percentage_reduc }}%</ng-container> 
                 </td>
@@ -38,12 +38,12 @@
             </ng-container>
 
             <ng-container matColumnDef="comments">
-                <th mat-header-cell *matHeaderCellDef> Comments </th>
+                <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
             </ng-container>
 
             <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef>Type</th>
+                <th mat-header-cell *matHeaderCellDef>Type de Modification</th>
                 <td mat-cell *matCellDef="let produit">
                     <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedValue[produit.tig_id]">
                         <mat-radio-button value="{{valeurModif[0].value}}">{{ valeurModif[0].viewValue }}</mat-radio-button>
@@ -54,14 +54,14 @@
             </ng-container>
 
             <ng-container matColumnDef="input">
-                <th mat-header-cell *matHeaderCellDef>ModifS</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
                 <td mat-cell *matCellDef="let produit">
-                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px">
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="input2">
-                <th mat-header-cell *matHeaderCellDef>ModifP</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
                     <input type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="removePromo(produit.tig_id)">
@@ -91,14 +91,14 @@
             </ng-container>
 
             <ng-container matColumnDef="price_on_sale">
-                <th mat-header-cell *matHeaderCellDef> Promo</th>
+                <th mat-header-cell *matHeaderCellDef> Promotion </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.discount }} €</ng-container>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="discount">
-                <th mat-header-cell *matHeaderCellDef> % </th>
+                <th mat-header-cell *matHeaderCellDef> Réduction </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.percentage_reduc }}%</ng-container> 
                 </td>
@@ -115,12 +115,12 @@
             </ng-container>
 
             <ng-container matColumnDef="comments">
-                <th mat-header-cell *matHeaderCellDef> Comments </th>
+                <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
             </ng-container>
 
             <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef>Type </th>
+                <th mat-header-cell *matHeaderCellDef>Type de Modification</th>
                 <td mat-cell *matCellDef="let produit">
                     <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedValue[produit.tig_id]">
                         <mat-radio-button value="{{valeurModif[0].value}}">{{ valeurModif[0].viewValue }}</mat-radio-button>
@@ -131,14 +131,14 @@
             </ng-container>
 
             <ng-container matColumnDef="input">
-                <th mat-header-cell *matHeaderCellDef>ModifS</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
                 <td mat-cell *matCellDef="let produit">
-                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px">
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="input2">
-                <th mat-header-cell *matHeaderCellDef>ModifP</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
                     <input type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="removePromo(produit.tig_id)">
@@ -168,14 +168,14 @@
             </ng-container>
 
             <ng-container matColumnDef="price_on_sale">
-                <th mat-header-cell *matHeaderCellDef> Promo</th>
+                <th mat-header-cell *matHeaderCellDef> Promotion </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.discount }} €</ng-container>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="discount">
-                <th mat-header-cell *matHeaderCellDef> % </th>
+                <th mat-header-cell *matHeaderCellDef> Réduction </th>
                 <td mat-cell *matCellDef="let produit" style="color:crimson"> 
                     <ng-container *ngIf="produit.sale == true">{{ produit.percentage_reduc }}%</ng-container> 
                 </td>
@@ -192,12 +192,12 @@
             </ng-container>
 
             <ng-container matColumnDef="comments">
-                <th mat-header-cell *matHeaderCellDef> Comments </th>
+                <th mat-header-cell *matHeaderCellDef> Commentaire </th>
                 <td mat-cell *matCellDef="let produit"> {{ produit.comments }} </td>
             </ng-container>
 
             <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef>Type </th>
+                <th mat-header-cell *matHeaderCellDef>Type de Modification</th>
                 <td mat-cell *matCellDef="let produit">
                     <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedValue[produit.tig_id]">
                         <mat-radio-button value="{{valeurModif[0].value}}">{{ valeurModif[0].viewValue }}</mat-radio-button>
@@ -208,14 +208,14 @@
             </ng-container>
 
             <ng-container matColumnDef="input">
-                <th mat-header-cell *matHeaderCellDef>ModifS</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Stock</th>
                 <td mat-cell *matCellDef="let produit">
-                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px" min="0">
+                    <input type="number" [(ngModel)]="nombre[produit.tig_id]" style="width: 40px">
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="input2">
-                <th mat-header-cell *matHeaderCellDef>ModifP</th>
+                <th mat-header-cell *matHeaderCellDef>Modifier Promo</th>
                 <td mat-cell *matCellDef="let produit"> 
                     <input type="number" [(ngModel)]="promo[produit.tig_id]" style="width: 40px" min="0" max="100">
                     <button mat-icon-button (click)="removePromo(produit.tig_id)">
