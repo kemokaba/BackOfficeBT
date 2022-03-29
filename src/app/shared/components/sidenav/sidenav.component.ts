@@ -13,8 +13,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  themeColor: 'primary' | 'accent' | 'warn' = 'primary'; // ? notice this
-  isDark = false; // ? notice this
+  themeColor: 'primary' | 'accent' | 'warn' = 'primary'; 
+  isDark = false; 
   constructor(private overlay: OverlayContainer) {}
 
   ngOnInit(): void {}

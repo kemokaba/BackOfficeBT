@@ -3,6 +3,7 @@
  <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
 <div [class.dark-theme]="isDark">
     <mat-toolbar [color]="themeColor">
+      <button mat-button (click)="sidenav.toggle()"><mat-icon>view_list</mat-icon></button>
       <span>Menu</span>
       <span class="spacer"></span>
         
@@ -15,20 +16,17 @@
     <mat-sidenav-container class="container">
         
       <mat-sidenav #sidenav mode="side" opened>
-         
           <mat-nav-list>
             <a mat-list-item href="/produit"><mat-icon>view_list</mat-icon>Produits</a>
             <a mat-list-item href="/stock"><mat-icon>done_all</mat-icon>Stocks</a>
             <a mat-list-item href="/historique"><mat-icon>timelapse</mat-icon>Historiques</a>
           </mat-nav-list>
-      
       </mat-sidenav>
-      <mat-sidenav-content style="margin-left: 240px;">
+      <mat-sidenav-content>
 
         <router-outlet></router-outlet>
         
       </mat-sidenav-content>
       
-
     </mat-sidenav-container> 
 </div>    
