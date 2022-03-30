@@ -42,7 +42,6 @@ export class HistoriqueComponent implements OnInit {
       alert('failed loading json data');
     });
 
-   console.log(this.saleData)
   };
 
 
