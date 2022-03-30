@@ -1,3 +1,4 @@
+<mat-card-title>Liste des Produits</mat-card-title>
 <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
     <mat-tab label="Produits">
         <table mat-table [dataSource]="listeProduits"  class="mat-elevation-z8">

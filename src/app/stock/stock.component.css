@@ -10,3 +10,10 @@ th{
   margin-left: 5px;
   margin-right: 10px;
 }
+.mat-tab-group {
+  margin: 30px;
+}
+
+mat-card-title {
+  margin-left: 30px;
+}
