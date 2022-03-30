@@ -15,3 +15,7 @@ mat-tab-group {
 mat-card-title {
   margin-left: 30px;
 }
+
+mat-card-subtitle {
+  margin-left: 30px;
+}
