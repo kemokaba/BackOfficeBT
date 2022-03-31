@@ -1,9 +1,8 @@
 // src/theme.scss
 
-// ? Importing `Work Sans` font for headings, you can change this if you want
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap");
 
-// ? 1. Default theme
+//Thème par défaut
 $light-primary: mat-palette($mat-red, 400);
 $light-accent: mat-palette($mat-blue-grey, 100);
 $light-warn: mat-palette($mat-red, 900);
@@ -14,7 +13,7 @@ $theming-material-components-theme: mat-light-theme(
   $light-warn
 );
 
-// ? 2. Define an alternate dark theme.
+//Dark mode
 $dark-primary: mat-palette($mat-amber, A200, A100, A400);
 $dark-accent: mat-palette($mat-blue-grey, 100);
 $dark-warn: mat-palette($mat-red, 900);
@@ -28,7 +27,7 @@ $dark-theme: mat-dark-theme(
   )
 );
 
-// ? 3. Define a custom heading typography config
+//Police customisé
 $heading-font-family: "'Work Sans', sans-serif";
 $typography: mat-typography-config(
   $display-4: mat-typography-level(112px, $font-family: $heading-font-family),

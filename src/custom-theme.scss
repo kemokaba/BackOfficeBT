@@ -51,18 +51,18 @@ $projetBackOfficeBT-theme: mat.define-light-theme((
 
 @include mat-core();
 
-// import our custom theme                // ? changed
-@import "./theme.scss";                   // ? changed
-                                          // ? changed
-// import custom component themes         // ? changed
-@import "./custom-component-themes.scss"; // ? changed
+// import our custom theme                
+@import "./theme.scss";                   
+                                          
+// import custom component themes         
+@import "./custom-component-themes.scss"; 
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
-@include angular-material-theme($theming-material-components-theme);  // ? changed
-@include custom-components-theme($theming-material-components-theme); // ? changed
+@include angular-material-theme($theming-material-components-theme);  
+@include custom-components-theme($theming-material-components-theme); 
 
 // ? added
 

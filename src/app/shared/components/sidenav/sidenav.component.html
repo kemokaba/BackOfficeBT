@@ -1,13 +1,11 @@
 <!-- src\app\shared\components\sidenav\sidenav.component.html -->
 
- <!-- ? we're wrapping whole content in a div, to handle dark/light theme -->
- <div [class.dark-theme]="isDark">
+<div [class.dark-theme]="isDark">
   <mat-toolbar [color]="themeColor">
     <button mat-button (click)="sidenav.toggle()"><mat-icon>view_list</mat-icon></button>
     <span>Menu</span>
     <span class="spacer"></span>
       
-    <!-- ? below button will help us change the theme at run-time. -->
     <button mat-icon-button (click)="toggleTheme()" matTooltip="Dark Mode" matTooltipClass="toggletheme">
       <mat-icon>brightness_6</mat-icon>         
     </button>
