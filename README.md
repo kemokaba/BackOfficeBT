@@ -1,27 +1,18 @@
 # ProjetBackOfficeBT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+Ce projet à été réalisé par Kemo DIAITE, Yuepeng YANG et Mathieu ALBIN généré à l'aide de [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
-## Development server
+## Installation
+Pour pouvoir lancer l'application il vous faut tout d'abord [nodejs](https://nodejs.org/fr/download/) 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Si vous avez déjà nodejs vous avez juste a executer la commande suivante:
+```bash
+npm install 
+```
+Les composant nécéssaire vont s'installer automatiquement.
 
-## Code scaffolding
+## Lancement
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Vous pouvez lancer l'application localement en faisant un `ng serve`, vous pourrez y accéder localement: `http://localhost:4200/`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+L'application est aussi déployé sur AWS Amplify vous pouvez la retrouver en ligne à cette [adresse](https://main.dgu49awu2216l.amplifyapp.com/)
