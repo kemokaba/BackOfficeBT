@@ -72,9 +72,7 @@ export class ProduitComponent implements OnInit {
   
   modifStock(produit: Product, num:number){
     produit.quantityInStock += num
-    this.productsService.incrementStock(produit.tig_id,produit.quantityInStock).subscribe((res : Product) => {
-      this.produit = res
-    },
+    this.productsService.incrementStock(produit.tig_id,produit.quantityInStock).subscribe((res : Product) => {},
     (err) => {
       alert('failed loading json data');
     });
@@ -101,9 +99,7 @@ export class ProduitComponent implements OnInit {
         }
         produit.quantityInStock -= num
         produit.quantitySold += num
-        this.productsService.decrementForVente(produit.tig_id,produit.quantityInStock,produit.quantitySold).subscribe((res : Product) => {
-          this.produit = res
-        },
+        this.productsService.decrementForVente(produit.tig_id,produit.quantityInStock,produit.quantitySold).subscribe((res : Product) => {},
         (err) => {
           alert('failed loading json data');
         });
@@ -117,9 +113,7 @@ export class ProduitComponent implements OnInit {
       else if (this.selectedValue == this.valeurModif[2].value){
         prix = produit.price*num
         produit.quantityInStock -= num
-        this.productsService.decrementStock(produit.tig_id,produit.quantityInStock).subscribe((res : Product) => {
-            this.produit = res
-          },
+        this.productsService.decrementStock(produit.tig_id,produit.quantityInStock).subscribe((res : Product) => {},
           (err) => {
             alert('failed loading json data');
           });
@@ -138,17 +132,14 @@ export class ProduitComponent implements OnInit {
       produit.percentage_reduc = num
       produit.sale = true
       produit.discount = Math.round((produit.price * (1 - produit.percentage_reduc / 100)) * 100) / 100
-      this.productsService.putOnSale(produit.tig_id,produit.sale,produit.discount,produit.percentage_reduc).subscribe((res : Product) => {
-        this.produit = res
-      },
+      this.productsService.putOnSale(produit.tig_id,produit.sale,produit.discount,produit.percentage_reduc).subscribe((res : Product) => {},
       (err) => {
         alert('failed loading json data');
       });
     }
-    if(num !== null && num == 0){
-      this.productsService.removeSale(produit.tig_id).subscribe((res : Product) => {
-        this.produit = res
-      },
+    else{
+      produit.sale = false
+      this.productsService.removeSale(produit.tig_id, produit.sale).subscribe((res : Product) => {},
       (err) => {
         alert('failed loading json data');
       });
@@ -157,10 +148,9 @@ export class ProduitComponent implements OnInit {
     this.promo.length = 0;
   }
 
-  enleverPromo(id:number){
-    this.productsService.removeSale(id).subscribe((res : Product) => {
-      this.produit = res
-    },
+  enleverPromo(produit: Product){
+    produit.sale = false
+    this.productsService.removeSale(produit.tig_id,produit.sale).subscribe((res : Product) => {},
     (err) => {
       alert('failed loading json data');
     });

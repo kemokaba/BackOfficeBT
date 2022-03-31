@@ -61,7 +61,7 @@
                     <input matInput type="number" [(ngModel)]="promo[produit.tig_id]" min="0" max="100">
                 </mat-form-field>
                 <button mat-button (click)="mettrePromo(produit, promo[produit.tig_id])">Mettre en Promo</button>
-                <button mat-button (click)="enleverPromo(produit.tig_id)">Enlever Promo</button>
+                <button mat-button (click)="enleverPromo(produit)">Enlever Promo</button>
             </mat-card-actions>
           </mat-card>
     </mat-tab>

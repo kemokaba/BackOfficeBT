@@ -34,8 +34,8 @@ export class ProductsService {
     return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { sale:sale, discount: discount, percentage_reduc: pourcentage } , { headers: this.httpHeaders });
   }
 
-  removeSale(id:number): Observable<Product>{
-    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { sale:false }, { headers: this.httpHeaders });
+  removeSale(id:number, sale:boolean): Observable<Product>{
+    return this.http.put<Product>(this.baseUrl+'infoproduct/'+id+'/', { sale:sale }, { headers: this.httpHeaders });
   }
 
   incrementForStock(id:number, value:number): Observable<Product[]>{
